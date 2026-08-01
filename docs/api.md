@@ -10,3 +10,4 @@
 | GET | `/api/shopfloor/dashboard` | 业务分析师工作台 |
 | POST | `/api/shopfloor/work-orders/{id}/reports` | 提交结论校验 |
 | POST | `/api/shopfloor/ai-preview` | 调用可替换分析 AI Provider |
+| POST | `/api/shopfloor/insight-priority` | 按影响、置信度、时效与数据质量确定洞察优先级 |
