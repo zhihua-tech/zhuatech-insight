@@ -49,3 +49,7 @@ npm run dev:demo
 | ![知华科技微信咨询一](docs/images/zhuatech-wechat-consulting.png) | ![知华科技微信咨询二](docs/images/zhuatech-wechat-consulting-2.png) |
 
 SEO：AI 数据分析源码、自然语言 BI、企业数据助手、指标语义层、Text to SQL、Java BI、Vue 数据分析、知华科技。
+
+## 洞察行动化评分
+
+新增 `POST /api/insight/insights/actionability`，结合置信度、业务影响、数据新鲜度、责任人、建议动作和预计价值，输出 `EXECUTE`、`REFINE` 或 `PARK`。
