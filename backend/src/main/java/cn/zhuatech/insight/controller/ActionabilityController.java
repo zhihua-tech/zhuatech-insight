@@ -1,3 +1,3 @@
-/* Copyright 2026 上海如静知华信息科技有限公司 */
+/* Copyright 2026 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/ */
 package cn.zhuatech.insight.controller;import cn.zhuatech.insight.common.ApiResponse;import cn.zhuatech.insight.service.ActionabilityService;import jakarta.validation.Valid;import org.springframework.web.bind.annotation.*;
 @RestController @RequestMapping("/api/insight/insights/actionability") public class ActionabilityController{private final ActionabilityService service;public ActionabilityController(ActionabilityService service){this.service=service;}@PostMapping ApiResponse<ActionabilityService.Result> evaluate(@Valid @RequestBody ActionabilityService.Request r){return ApiResponse.ok(service.evaluate(r));}}

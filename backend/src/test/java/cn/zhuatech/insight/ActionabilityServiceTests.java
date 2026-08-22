@@ -1,3 +1,3 @@
-/* Copyright 2026 上海如静知华信息科技有限公司 */
+/* Copyright 2026 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/ */
 package cn.zhuatech.insight;import cn.zhuatech.insight.service.ActionabilityService;import org.junit.jupiter.api.Test;import java.math.*;import static org.junit.jupiter.api.Assertions.*;
 class ActionabilityServiceTests{private final ActionabilityService s=new ActionabilityService();@Test void executesStrongOwnedInsight(){var r=s.evaluate(new ActionabilityService.Request(95,90,2,true,true,new BigDecimal("100000")));assertEquals("EXECUTE",r.status());}@Test void parksWeakStaleInsight(){var r=s.evaluate(new ActionabilityService.Request(20,20,100,false,false,BigDecimal.ZERO));assertEquals("PARK",r.status());}}
