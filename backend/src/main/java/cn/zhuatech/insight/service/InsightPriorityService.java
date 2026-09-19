@@ -9,9 +9,16 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-/** 按影响、置信度、紧迫度和数据质量对洞察进行可解释排序。 */
+/**
+ * 按影响、置信度、紧迫度和数据质量对洞察进行可解释排序。
+ *
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class InsightPriorityService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public PriorityResult prioritize(PriorityRequest request) {
         double score = request.impact() * 0.35 + request.confidence() * 0.25 + request.urgency() * 0.20 + request.dataQuality() * 0.20;
         int roundedScore = (int) Math.round(score);
@@ -24,6 +31,9 @@ public class InsightPriorityService {
         return new PriorityResult(priority, roundedScore, reviewRequired, List.copyOf(cautions), reviewRequired ? "先完成证据复核再分发" : "进入洞察订阅与行动跟踪");
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record PriorityRequest(
         @NotBlank(message = "请输入洞察标题") String title,
         @DecimalMin("0.0") @DecimalMax("100.0") double impact,
@@ -33,5 +43,8 @@ public class InsightPriorityService {
         boolean sensitiveDecision
     ) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record PriorityResult(String priority, int score, boolean reviewRequired, List<String> cautions, String nextAction) {}
 }

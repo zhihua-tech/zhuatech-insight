@@ -1,7 +1,13 @@
 /* Copyright 2026 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/ */
 package cn.zhuatech.insight.config;
 import cn.zhuatech.insight.model.*; import cn.zhuatech.insight.repository.*; import org.springframework.boot.CommandLineRunner; import org.springframework.context.annotation.*; import org.springframework.security.crypto.password.PasswordEncoder; import java.time.LocalDate; import java.util.List;
-@Configuration public class DataInitializer {@Bean CommandLineRunner seed(OperatingUnitRepository units,WorkRecordRepository records,ResourceRegisterRepository resources,ReviewRecordRepository reviews,UserRepository users,PasswordEncoder encoder){return args->{if(units.count()>0)return;
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
+@Configuration public class DataInitializer {/**
+                                              * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+                                              */
+@Bean CommandLineRunner seed(OperatingUnitRepository units,WorkRecordRepository records,ResourceRegisterRepository resources,ReviewRecordRepository reviews,UserRepository users,PasswordEncoder encoder){return args->{if(units.count()>0)return;
  OperatingUnit biz=units.save(new OperatingUnit("INS-BIZ","经营分析域","财务与销售",5000)),mkt=units.save(new OperatingUnit("INS-MKT","营销分析域","电商事业部",4000)),scm=units.save(new OperatingUnit("INS-SCM","供应链分析域","供应链中心",3000));
  WorkRecord a=records.save(new WorkRecord("INS-260801-084","TOPIC-PROFIT-EAST","华东区域毛利率下降归因分析",biz,42,38,2,LocalDate.now().plusDays(1),WorkRecord.Status.RUNNING,"SEMANTIC-V3.2")); WorkRecord b=records.save(new WorkRecord("INS-260801-071","TOPIC-NPI-FUNNEL","电商渠道新品转化漏斗分析",mkt,36,36,0,LocalDate.now(),WorkRecord.Status.COMPLETED,"FUNNEL-V2.1")); WorkRecord c=records.save(new WorkRecord("INS-260801-106","TOPIC-INVENTORY","库存周转异常门店定位",scm,54,32,6,LocalDate.now().plusDays(2),WorkRecord.Status.RELEASED,"METRIC-V4.0"));
  resources.saveAll(List.of(new ResourceRegister("SEM-BIZ-001","经营分析语义层",biz,ResourceRegister.Status.RUNNING,96),new ResourceRegister("SEM-MKT-002","营销增长语义层",mkt,ResourceRegister.Status.RUNNING,92),new ResourceRegister("SEM-SCM-003","供应链语义层",scm,ResourceRegister.Status.ALARM,76)));
